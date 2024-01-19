@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Payment</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <script th:src="@{/js/customer.js}"></script>
+</head>
+<body>
+<a href="customer">
+    <h2> Create another order </h2>
+</a>
+<h1>Checkout</h1>
+
+<form method="POST" action="customer_order_tracking">
+    <label for="email">Email</label>
+    <input type="text" id="email" name="name" placeholder="johnsmith@example.com"><br>
+    <input type="checkbox" id="subscribe" name="subscribe">
+    <label for="subscribe">Keep me up to date with the latest offers</label>
+    </br>
+
+    <label for="cardName">Name on Card*</label>
+    <br><input type="text" id="cardName" name="cardName" placeholder="John Smith"></br>
+
+    <label for="cardNumber">Card number*</label>
+    <br><input type="text" id="cardNumber" name="cardNumber"
+               placeholder="1111-2222-3333-4444"></br>
+
+    <label for="expDate">Expiry date*</label>
+    <br><input type="text" id="expDate" name="expDate" placeholder="01/22"></br>
+
+    <label for="cvv">CVV*</label>
+    <br><input type="text" id="cvv" name="cvv" placeholder="123"></br>
+
+    <label for="tableNum">Table number*</label>
+    <br><input type="text" id="tableNum" name="tableNum" placeholder="1"></br>
+    <button type="submit">Confirm payment </button>
+
+</form>
+
+<button onClick="next();">Track order </button>
+
+
+<p th:text="${order}"></p>
+
+<script th:inline="javascript">
+    var id = [[${id}]];
+    function next() {
+        var parameter = window.location.search.replace( "?", "" ); 
+        var values = parameter.split("=");
+        table = values[2];
+        location.href= '/customer_order_tracking?id=' + id+ '&table='+table;
+    }
+</script>
+
+</body>
+</html>

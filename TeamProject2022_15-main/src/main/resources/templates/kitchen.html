@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Kitchen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>Kitchen</h1>
+<a href="/">
+    <button> Return to main menu</button>
+</a>
+
+<table>
+    <tr>
+        <th>Order no</th>
+        <th>Items</th>
+        <th>Status</th>
+        <th>Time</th>
+        <th>Change status</th>
+    </tr>
+    <div class="order" th:each="i : ${#numbers.sequence( 0, orders.size - 1)}">
+        <!--<p th:if="${orders.size != 0}" th:id="'order'+${i+1}"></p>-->
+
+        <!--If the orders size is 0 the orders table will not be displayed-->
+        <div th:switch="${orders.size}">
+            <p th:case="0">No orders have been made.</p>
+            <tr th:case="*">
+            <td th:text="${orders[i].getOrderNum()}">order num</td>
+            <td th:text="${orders[i].getItemStrings()}">items here</td>
+            <td th:text="${orders[i].getStatus()}" th:id="'statusString'+${i}">status here</td>
+            <td th:text="${orders[i].getTimeString()}">time here</td>
+            <td>
+                <select name="s" th:id="'status'+${i}">
+                    <option th:each="status : ${T(com.example.project.Status).values()}"
+                            th:value="${status}"
+                            th:text="${status}">
+                    </option>
+                </select>
+            </td>
+            <td>
+                <button type="button" th:id="'orderButton' + ${i}"
+                        th:onclick="'changeStatus(' + ${i} + ')'">
+                    Send
+                </button>
+            </td>
+            </tr>
+        </div>
+
+    </div>
+</table>
+
+<button type="button" onclick="confirmOrders()">Confirm orders</button>
+<p id="confirmation"></p>
+
+<!-- A simple AJAX request to confirm orders-->
+<script>
+    function confirmOrders() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("confirmation").innerHTML += this.responseText;
+            }
+        };
+        xhttp.open("GET", "kitchen_confirmation", true);
+        xhttp.send();
+    }
+</script>
+
+<!-- A simple AJAX request to change an order's status, in future the response should show the entire page-->
+<script>
+    function changeStatus(x) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("confirmation").innerHTML += this.responseText;
+            }
+        };
+        status = document.getElementById("status" + x).value;
+        string = document.getElementById("statusString"+x);
+        string.innerHTML = status.toUpperCase();
+        xhttp.open("GET", "kitchen_confirmation?id=" + x + "&status=" + status, true);
+        xhttp.send();
+    }
+</script>
+</body>
+</html>

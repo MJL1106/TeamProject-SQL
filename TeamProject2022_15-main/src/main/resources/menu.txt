@@ -1,0 +1,14 @@
+1,Shell,Crunchy taco,70,[15],T
+2,Shell,Soft taco,74,[15],T
+3,Shell,Burrito,105,[8],T
+4,Filling,Beef,320,[8/6],T
+5,Filling,Chicken,306,[8/6/13],F
+6,Filling,Black Beans,320,[8/6],F
+7,Filling,Vegetarian beef,310,[5],T
+8,Salad,Lettuce,11,[15],F
+9,Salad,Onion,8,[15],F
+10,Salad,Tomatoes,10,[15],T
+11,Salad,Cheese,45,[6],T
+12,Salad,Bacon,76,[15],T
+13,Sides,Nachos,350,[8/6],T
+14,Sides,Churros,156,[8/6],T

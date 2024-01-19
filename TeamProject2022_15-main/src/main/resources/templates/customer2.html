@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <script th:src="@{/js/customer.js}"></script>
+</head>
+<body onload="out()">
+<h1>Customer</h1>
+<a href="/">
+    <button> Return to main menu </button>
+</a>
+
+<h2>Menu:</h2>
+
+    <div class="orderList" id = "price">price:</div>
+
+    <div class="menu">
+        <div th:each="i : ${#numbers.sequence( 0, menu.size-1)}"  th:attr="class=${menu[i].inStock ? 'inStock' : 'outOfStock'}">
+            <span th:if="${menu[i].name == 'Crunchy taco'}">Pick a shell</span>
+            <span th:if="${menu[i].name == 'Beef'}">Pick a filling</span>
+            <span th:if="${menu[i].name == 'Lettuce'}">Choose your salad</span>
+            <span th:if="${menu[i].name == 'Nachos'}">Add some sides</span>
+            <table>
+                <tr>
+                    <td th:text="${menu[i].name}"></td>
+                    </br>
+                    <td th:text="'calories: ' + ${menu[i].calories}"></td>
+                    <td th:text="'price: £' + ${menu[i].price}"></td>
+                    <td th:text="${'allergens: ' + menu[i].allergens}"></td>
+                    <input id = "input" th:id="'input' + ${i}" type=number min=0 max=110 value = 0 disabled>
+                    <button th:onclick="'increment(' + ${i} + ');'">+</button>
+                    <button th:onclick="'decrement(' + ${i} + ');'">-</button>
+                </tr>
+
+            </table>
+        </div>
+        <button onclick="makeOrder();resetValues();">Make Order</button>
+        <p th:text="${order}"></p>
+    </div>
+
+    <button onClick="help()">Call waiter</button>
+    <p id="confirmation"></p>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Tables</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+The waiter is able to view their assigned tables here.
+
+    <table>
+        <tr>
+            <th>Table no</th>
+            <th>Order no</th>
+            <th>Paid</th>
+            <th>Help Needed</th>
+            <th>Clear table</th>
+            <th>Set Paid</th>
+        </tr>
+        <div th:each="i : ${#numbers.sequence( 0, tables-1)}">
+            <tr>
+                <td th:text="${i+1}">1</td>
+                <td th:text="${tableStatus[i]}">1</td>
+                <td th:text="${paid[i]}" th:id="'paid'+${i}">paid</td>
+                <td><button th:id="'help'+${i}" th:text="${helpStatus[i]}" th:onClick="'help('+${i}+')'">helpStatus</button></td>
+                <td><button th:onClick="'clearTable('+${i}+')'">Clear</button></td>
+                <td><button th:onClick="'setPaid('+${i}+')'">Change</button></td>
+            </tr>
+        </div>
+    </table>
+
+<a href="waiter">
+    <button>back</button>
+</a>
+
+<script>
+    function clearTable(i){
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", "/tables?clear="+i, true);
+        xhttp.send();
+        location.href = "/tables";
+    }
+
+    function setPaid(i){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                if (document.getElementById("paid"+i).innerText == "no") {
+                    document.getElementById("paid"+i).innerText = "yes";
+                } else {
+                    document.getElementById("paid"+i).innerText = "no";
+                }
+            }
+        };
+        xhttp.open("GET", "/tables?paid="+i, true);
+        xhttp.send();
+    }
+
+    function help(i){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                if (document.getElementById("help"+i).innerHTML == "yes") {
+                    document.getElementById("help"+i).innerHTML = "no";
+                } else {
+                    document.getElementById("help"+i).innerHTML = "yes";
+                }
+            }
+        };
+        xhttp.open("GET", "customer_order_tracking?table="+(i+1)+"&help=1", true);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Order tracking</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+    <h1>Track your order here</h1>
+    <a href="/">
+        <button> Return to main menu </button>
+    </a>
+
+    <p th:text="'The order is Currently: ' + ${orderStatus}" id="confirmation"></p>
+
+    <button onClick="help()">Call waiter</button>
+    <p id="confirm"></p>
+
+</body>
+
+<!-- A simple AJAX request to confirm orders-->
+<script th:inline="javascript">
+
+    var count=1;
+
+    // Code to ask for help
+    function help(){
+    var parameter = window.location.search.replace( "?", "" ); 
+    var values = parameter.split("=");
+    table = values[2];
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            if (count%2 != 0) {
+                document.getElementById("confirm").innerHTML = "asking for help</br>";
+            } else {
+                document.getElementById("confirm").innerHTML = "help cancelled</br>";
+            }
+            count += 1;
+        }
+    };
+    xhttp.open("GET", "customer_order_tracking?table="+table+"&help=1", true);
+    xhttp.send();
+    }
+
+    var id = [[${id}]];
+    function confirmOrders(x) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("confirmation").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "confirm_order?id=" + x, true);
+        xhttp.send();
+    }
+
+    // Set function to run every 30 seconds
+    setInterval(function(){
+    confirmOrders(id);
+}, 30000)
+</script>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Menu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+the menu goes here, the waiter is able to edit the menu.
+
+<div th:each="i : ${#numbers.sequence( 0, menu.size-1)}">
+    <table>
+        <tr>
+            <td th:text="${menu[i].name}"></td>
+            </br>
+            <td th:text="'calories: ' + ${menu[i].calories}"></td>
+            <td th:text="'price: £' + ${menu[i].price}"></td>
+            <td th:text="${'allergens: ' + menu[i].allergens}"></td>
+            <button th:if="${menu[i].inStock}" th:id="'button'+ ${i}" class="button-in-stock" th:onClick="'stock('+ ${i} +')'">In Stock</button>
+            <button th:unless="${menu[i].inStock}" th:id="'button'+ ${i}" class="button-out-of-stock" th:onClick="'stock('+ ${i} +')'">Out of Stock</button>
+        </tr>
+    </table>
+</div>
+
+<a href="waiter">
+    <button>back</button>
+</a>
+
+<script>
+    function stock(i) {
+        let button = document.getElementById("button"+i);
+        if (button.className == "button-in-stock") {
+            button.className = "button-out-of-stock";
+            button.innerHTML = "Out of Stock";
+        } else {
+            button.className = "button-in-stock";
+            button.innerHTML = "In Stock";
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                console.log("Changed the stock of item " + i);
+            }
+        };
+        xhttp.open("GET", "waiter_orders_cancel?stock=" + i);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>

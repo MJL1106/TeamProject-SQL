@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Customer</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+    <script th:src="@{/js/customer.js}"></script>
+</head>
+<body>
+    <h1>Customer</h1>
+    <a href="/">
+        <button> Return to main menu </button>
+    </a>
+</br>
+        <label for="table">Choose a table:</label>
+        <select name="table" id="table">
+            <option th:if="${tableStatus[i] !=null}" 
+                th:each="i : ${#numbers.sequence( 0, tables-1)}"
+                th:value="${i+1}"
+                th:text="${i+1}"
+                disabled>
+            </option>
+            <option th:if="${tableStatus[i] ==null}" 
+                th:each="i : ${#numbers.sequence( 0, tables-1)}"
+                th:value="${i+1}"
+                th:text="${i+1}"
+                >
+            </option>
+        </select>
+        <button onclick="goOrder();">Order</button>
+
+        <script>
+            function goOrder() {
+                selection = document.querySelector('#table').value;
+                location.href= '/customer?table=' + selection;
+            }
+        </script>
+</body>

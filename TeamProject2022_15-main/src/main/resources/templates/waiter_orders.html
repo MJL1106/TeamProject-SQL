@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+The waiter is able to see the various order statuses here.
+
+<table>
+    <tr>
+        <th>Order no</th>
+        <th>Status</th>
+        <th>Cancel order</th>
+    </tr>
+    <div class="order" th:each="i : ${#numbers.sequence( 0, orders.size - 1)}">
+        <!--If the orders size is 0 the orders table will not be displayed-->
+        <div th:switch="${orders.size}">
+            <p th:case="0">No orders have been made.</p>
+            <tr th:case="*">
+                <td th:text="${orders[i].getOrderNum()}">order num</td>
+                <td th:text="${orders[i].getStatus()}" th:id="'status'+${i}">status here</td>
+
+                <td>
+                    <button type="button" th:id="'cancel' + ${i}"
+                            th:onclick="'cancelOrder('+ ${i} +')'">
+                        Cancel order
+                    </button>
+                </td>
+            </tr>
+        </div>
+
+    </div>
+</table>
+
+<a href="waiter">
+    <button>back</button>
+</a>
+<p id="confirmation"></p>
+
+<!-- An AJAX request to cancel an order-->
+<script>
+    function cancelOrder(x) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                document.getElementById("confirmation").innerHTML += this.responseText;
+            }
+        };
+        xhttp.open("GET", "waiter_orders_cancel?id=" + x);
+        xhttp.send();
+        document.getElementById("status" + x).innerText = "CANCELLED";
+    }
+</script>
+
+</body>
+</html>

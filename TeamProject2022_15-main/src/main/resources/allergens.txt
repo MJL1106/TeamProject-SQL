@@ -1,0 +1,15 @@
+1,moluscs
+2,eggs
+3,fish
+4,lupin
+5,soya
+6,milk
+7,peanuts
+8,gluten
+9,crustacenas
+10,mustard
+11,nuts
+12,sesame
+13,celery
+14,sulphites
+15,none
