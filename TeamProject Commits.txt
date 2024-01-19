@@ -1,0 +1,282 @@
+commit 768147ce04270cb6c234b3bef65c50415db56a39 (HEAD -> main)
+Merge: cbac294 2e9e985
+Author: MJL1106 <matthewlowe18@gmail.com>
+Date:   Thu Sep 21 18:57:37 2023 +0100
+
+    Merge branch 'main' of https://github.com/RHUL-CS-Projects/TeamProject2022_15
+
+commit cbac294f7ab823238021b52953266f10e2d33c71 (origin/Notify-customer, Notify-customer)
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Mar 23 13:36:09 2022 +0000
+
+    Added test case for customer order tracking
+
+commit 8e36f2b5d19b3256842bbefee5c00b8b1e88e4d0
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Mar 23 13:35:55 2022 +0000
+
+    Implemented customer order tracking
+
+commit 222e0519a7781f90053109df0e5fb6c240e96929
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Mar 8 13:53:26 2022 +0000
+
+    Update Status.java
+
+commit 0e46b0d6f1cb1f5d35a611618a64e4becd4b0484
+Merge: d20d051 1b28092
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Mar 8 13:52:40 2022 +0000
+
+    Merge branch 'main' into cancel-order
+
+commit d20d05183a2843541206525b1ea3fde4807bec96
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Sun Mar 6 20:46:27 2022 +0000
+
+    Added test for invalid orders
+
+    added a test to alert the waiter when they try to cancel an invalid order number
+
+commit dd084737654333bbd340de3b22d90c6865be9eb9
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Sat Mar 5 10:35:25 2022 +0000
+
+    Added handler for invalid orders
+
+    Added a handler if the waiter tries to cancel and order number that does not exist
+
+commit d9b0167da3f833704e4969dbb1b95b6f0074739a
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:45:26 2022 +0000
+
+    Added test to cancel an order
+
+commit 5523b397a94c038347189a3219bc4b81797c1f56
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:43:29 2022 +0000
+
+    Added cancel order function
+:
+    Merge branch 'main' into cancel-order
+
+commit d20d05183a2843541206525b1ea3fde4807bec96
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Sun Mar 6 20:46:27 2022 +0000
+
+    Added test for invalid orders
+
+    added a test to alert the waiter when they try to cancel an invalid order number
+
+commit dd084737654333bbd340de3b22d90c6865be9eb9
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Sat Mar 5 10:35:25 2022 +0000
+
+    Added handler for invalid orders
+
+    Added a handler if the waiter tries to cancel and order number that does not exist
+
+commit d9b0167da3f833704e4969dbb1b95b6f0074739a
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:45:26 2022 +0000
+
+    Added test to cancel an order
+
+commit 5523b397a94c038347189a3219bc4b81797c1f56
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:43:29 2022 +0000
+
+    Added cancel order function
+
+commit e0cb474f54ffdbcc2a89e696643a676d08cf4dd4
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:38:50 2022 +0000
+
+    Added Cancelled Status
+
+commit 976f2b731ee4cf1a40d803e073a19c2d689851de
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Feb 23 00:43:02 2022 +0000
+
+    Added TDD test for orderTimes
+
+    Added TDD test for orderTimes that checks for order display.
+
+commit b2115a02143765e88eeac9bd215eeb551e592b99
+Merge: 2d88e65 d85f87a
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Mon Feb 21 13:21:13 2022 +0000
+
+    Merge branch 'order_times' of https://github.com/RHUL-CS-Projects/TeamProject2022_15 into order_times
+
+commit 2d88e658ba6f8e0cb5b42fbb5fc1f3f2697e9b5d
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Mon Feb 21 13:20:21 2022 +0000
+
+    Added method to view order number and order time
+
+    This method displays the order number and the order time so that the waiter can prioritise which order needs to be served
+
+commit 906348fb9bbf5068155b6fcf10988ea8d066c230
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Feb 9 17:25:57 2022 +0000
+
+    Created TDD for Kitchen
+
+    added an initial test case to kitchen to display current in progress order and allow kitchen to enter if it is ready or not
+:
+    Merge branch 'main' into cancel-order
+
+commit d20d05183a2843541206525b1ea3fde4807bec96
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Sun Mar 6 20:46:27 2022 +0000
+
+    Added test for invalid orders
+
+    added a test to alert the waiter when they try to cancel an invalid order number
+
+commit dd084737654333bbd340de3b22d90c6865be9eb9
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Sat Mar 5 10:35:25 2022 +0000
+
+    Added handler for invalid orders
+
+    Added a handler if the waiter tries to cancel and order number that does not exist
+
+commit d9b0167da3f833704e4969dbb1b95b6f0074739a
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:45:26 2022 +0000
+
+    Added test to cancel an order
+
+commit 5523b397a94c038347189a3219bc4b81797c1f56
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:43:29 2022 +0000
+
+    Added cancel order function
+
+commit e0cb474f54ffdbcc2a89e696643a676d08cf4dd4
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Fri Mar 4 13:38:50 2022 +0000
+
+    Added Cancelled Status
+
+commit 976f2b731ee4cf1a40d803e073a19c2d689851de
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Feb 23 00:43:02 2022 +0000
+
+    Added TDD test for orderTimes
+
+    Added TDD test for orderTimes that checks for order display.
+
+commit b2115a02143765e88eeac9bd215eeb551e592b99
+Merge: 2d88e65 d85f87a
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Mon Feb 21 13:21:13 2022 +0000
+
+    Merge branch 'order_times' of https://github.com/RHUL-CS-Projects/TeamProject2022_15 into order_times
+
+commit 2d88e658ba6f8e0cb5b42fbb5fc1f3f2697e9b5d
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Mon Feb 21 13:20:21 2022 +0000
+
+    Added method to view order number and order time
+
+    This method displays the order number and the order time so that the waiter can prioritise which order needs to be served
+
+commit 906348fb9bbf5068155b6fcf10988ea8d066c230
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Feb 9 17:25:57 2022 +0000
+
+    Created TDD for Kitchen
+
+    added an initial test case to kitchen to display current in progress order and allow kitchen to enter if it is ready or not
+
+commit e62f0e2a62e41c70e8db6ae1c0fb8ab047ead7c3
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Feb 9 17:25:14 2022 +0000
+
+    Added getters to Order
+
+commit a8f6691e98c398a7e372846bb7c35386f8b5baba
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Wed Feb 9 17:24:37 2022 +0000
+
+    Refactored kitchen class to implement Order
+
+commit 177430a7c4f141f61c1406e61010cfa3daadca2e
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Feb 1 15:29:27 2022 +0000
+
+    Created initial waiter class
+
+    created the initial waiter class containing a function to notify the waiter which order number is ready.
+
+commit 3f1701159ed275c03c17772f618da5bce753320a
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Feb 1 15:28:50 2022 +0000
+
+    Finished kitchen class
+
+    Added function to notify the waiters which order number is ready
+
+commit 5b0d4c93f5565606b97858fe0906e044e279eda3 (origin/View_Menu)
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Jan 25 12:48:18 2022 +0000
+
+    JUnit tests for the menu class
+
+    This includes some JUnit tests to test the correct functionality of the Menu class.
+
+commit 3f02de120c54a64636ecf615d4a0a7f20577df8e
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Mon Jan 24 14:32:36 2022 +0000
+
+    Enum Class status
+
+    Shows the current status of the order made
+
+commit f712971f3b605ecec6bb6a4039428f88973d5aee
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Jan 18 15:40:54 2022 +0000
+
+    Format of files
+
+    Updated the format of the menu text file to allow for easier file traversal.
+
+commit f21e12178bc03b06eb3ce4866f3809ea0c3768e4
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Jan 18 15:39:01 2022 +0000
+
+    Created Menu Class
+
+    Created the main menu class that reads the menu information from a text file and formats the text into their different categories such as Shell, Filling, Salad, Sides.
+(END)
+
+    JUnit tests for the menu class
+
+    This includes some JUnit tests to test the correct functionality of the Menu class.
+
+commit 3f02de120c54a64636ecf615d4a0a7f20577df8e
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Mon Jan 24 14:32:36 2022 +0000
+
+    Enum Class status
+
+    Shows the current status of the order made
+
+commit f712971f3b605ecec6bb6a4039428f88973d5aee
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Jan 18 15:40:54 2022 +0000
+
+    Format of files
+
+    Updated the format of the menu text file to allow for easier file traversal.
+
+commit f21e12178bc03b06eb3ce4866f3809ea0c3768e4
+Author: MJL1106 <75175998+MJL1106@users.noreply.github.com>
+Date:   Tue Jan 18 15:39:01 2022 +0000
+
+    Created Menu Class
+
+    Created the main menu class that reads the menu information from a text file and formats the text into their different categories such as Shell, Filling, Salad, Sides.#
